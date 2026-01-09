@@ -21,32 +21,34 @@ class SetupWindows {
       case 'WSAPlayer':
         await this.generateWinSDKRegKeys(silent);
         break;
-      case: 'StandaloneLinux64'
-        const command = `"C:/Program Files/Unity Hub/Unity Hub.exe" -- --headless install-modules --version 6000.0.58f2 --module linux-mono`;
+      case 'StandaloneLinux64': {
+        const command_lin = `"C:/Program Files/Unity Hub/Unity Hub.exe" -- --headless install-modules --version 6000.0.58f2 --module linux-mono`;
         
         // Ignoring return code because the log seems to overflow the internal buffer which triggers
         // a false error
-        const errorCode = await exec(command, undefined, {
+        const errorCode_lin = await exec(command_lin, undefined, {
           silent,
           ignoreReturnCode: true,
         });
-        if (errorCode) {
+        if (errorCode_lin) {
           throw new Error(`There was an error installing the Unity Editor. See logs above for details.`);
         }
         break;
-      case: 'StandaloneOSX'
-        const command = `"C:/Program Files/Unity Hub/Unity Hub.exe" -- --headless install-modules --version 6000.0.58f2 --module mac-mono`;
+      }
+      case 'StandaloneOSX': {
+        const command_osx = `"C:/Program Files/Unity Hub/Unity Hub.exe" -- --headless install-modules --version 6000.0.58f2 --module mac-mono`;
     
         // Ignoring return code because the log seems to overflow the internal buffer which triggers
         // a false error
-        const errorCode = await exec(command, undefined, {
+        const errorCode_osx = await exec(command_osx, undefined, {
           silent,
           ignoreReturnCode: true,
         });
-        if (errorCode) {
+        if (errorCode_osx) {
           throw new Error(`There was an error installing the Unity Editor. See logs above for details.`);
         }
         break;
+      }
     }
   }
 
