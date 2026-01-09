@@ -22,7 +22,7 @@ class SetupWindows {
         await this.generateWinSDKRegKeys(silent);
         break;
       case: 'StandaloneLinux64'
-        const command = `C:/Program Files/Unity Hub/Unity Hub.exe -- --headless install-modules --version 6000.0.58f2 --module linux-mono`;
+        const command = `C:/Program\ Files/Unity\ Hub/Unity\ Hub.exe -- --headless install-modules --version 6000.0.58f2 --module linux-mono`;
     
         // Ignoring return code because the log seems to overflow the internal buffer which triggers
         // a false error
@@ -35,7 +35,7 @@ class SetupWindows {
         }
         break;
       case: 'StandaloneOSX'
-        const command = `C:/Program Files/Unity Hub/Unity Hub.exe -- --headless install-modules --version 6000.0.58f2 --module mac-mono`;
+        const command = `C:/Program\ Files/Unity\ Hub/Unity\ Hub.exe -- --headless install-modules --version 6000.0.58f2 --module mac-mono`;
     
         // Ignoring return code because the log seems to overflow the internal buffer which triggers
         // a false error
