@@ -22,10 +22,11 @@ class SetupWindows {
         await this.generateWinSDKRegKeys(silent);
         break;
       case 'StandaloneLinux64': {
+        await exec(`"C:/Program Files/Unity Hub/Unity Hub.exe" -- --headless install --version 6000.0.58f2 --changeset 92dee566b325`, undefined, {silent: false, ignoreReturnCode: true});
         const command_lin = `"C:/Program Files/Unity Hub/Unity Hub.exe" -- --headless install-modules --version 6000.0.58f2 --module linux-mono`;
 
         await exec(`echo JCR test StandaloneLinux64`, undefined, {silent: false, ignoreReturnCode: true});
-        await exec(`choco install unity-hub`, undefined, {silent: false, ignoreReturnCode: true});
+        // await exec(`choco install unity-hub`, undefined, {silent: false, ignoreReturnCode: true});
         
         // Ignoring return code because the log seems to overflow the internal buffer which triggers
         // a false error
@@ -39,10 +40,11 @@ class SetupWindows {
         break;
       }
       case 'StandaloneOSX': {
+        await exec(`"C:/Program Files/Unity Hub/Unity Hub.exe" -- --headless install --version 6000.0.58f2 --changeset 92dee566b325`, undefined, {silent: false, ignoreReturnCode: true});
         const command_osx = `"C:/Program Files/Unity Hub/Unity Hub.exe" -- --headless install-modules --version 6000.0.58f2 --module mac-mono`;
 
         await exec(`echo JCR test StandaloneOSX`, undefined, {silent: false, ignoreReturnCode: true});
-        await exec(`choco install unity-hub`, undefined, {silent: false, ignoreReturnCode: true});
+        // await exec(`choco install unity-hub`, undefined, {silent: false, ignoreReturnCode: true});
         
         // Ignoring return code because the log seems to overflow the internal buffer which triggers
         // a false error
